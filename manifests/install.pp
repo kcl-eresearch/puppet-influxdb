@@ -6,7 +6,7 @@ class influxdb::install {
       'RedHat': {
         yumrepo {
           'InfluxDB':
-            baseurl  => "${influxdb::repo_url}/centos/${facts['operatingsystemmajrelease']}/${facts['architecture']}/stable",
+            baseurl  => "${influxdb::repo_url}/centos/${facts['os']['release']['major']}/${facts['os']['architecture']}/stable",
             gpgcheck => true,
             gpgkey   => $influxdb::repo_keyurl,
             before   => Package['influxdb'];
